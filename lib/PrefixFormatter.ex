@@ -14,8 +14,8 @@ defmodule PrefixFormatter do
       "? How old are you"
   """
   @spec format(String.t(), String.t()) :: String.t()
-  def format(prefix, text) do
-    ~s/#{A.bright()}#{prefix}#{A.reset()}#{A.white()}#{A.bright()} #{text}#{A.reset()}\n/
+  def format(prefix, message) do
+    ~s/#{A.bright()}#{prefix}#{A.reset()}#{A.white()}#{A.bright()} #{message}#{A.reset()}\n/
   end
 
   @doc """
