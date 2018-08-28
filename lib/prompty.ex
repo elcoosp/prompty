@@ -4,6 +4,7 @@ defmodule Prompty do
   @moduledoc """
   Bunch of helpers to prompt questions and print infos and errors in a pretty fahsion
   """
+  @type handler() :: (String.t() -> any)
 
   @doc """
   Pormpt a question and return the user input
@@ -23,18 +24,16 @@ defmodule Prompty do
 
   ## Examples
 
-    iex> Prompty.prompt_while(
-      &(&1 === "a"),
-      fn x -> Prompty.print_info("Success") end,
-      fn x -> Prompty.print_error("Oops") end,
-      "Say a"
-    )
-    "Some loop"
+      iex> Prompty.prompt_while(
+          &(&1 === "a"),
+          fn x -> Prompty.print_info("Success") end,
+          fn x -> Prompty.print_error("Oops") end,
+          "Say a"
+        )
+      "Some loop"
 
   """
-  @type input() :: String.t()
-  @type handler() :: (input -> any)
-  @spec prompt_while((input -> boolean), handler, handler, String.t()) :: :ok
+  @spec prompt_while((String.t() -> boolean), handler, handler, String.t()) :: :ok
   def prompt_while(predicate, true_handler, false_handler, question) do
     input = prompt(question)
 
