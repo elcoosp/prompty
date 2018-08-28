@@ -2,11 +2,11 @@ alias IO.ANSI, as: A
 
 defmodule PrefixFormatter do
   @moduledoc """
-  Prettify question and error message (using a prefix) and some nice colors
+  Prettify question, info and error message (using a prefix) and some colors
   """
 
   @doc """
-  Format a text and prefix to be printed with a line break
+  Format a messaget with a prefix and a message. Add a line break
 
   ## Examples
 
@@ -24,24 +24,24 @@ defmodule PrefixFormatter do
 
   ## Examples
 
-      iex> PrefixFormatter.format_question("How old are you")
+      iex> PrefixFormatter.format_quest("How old are you")
       "@quest:: How old are you"
 
   """
-  @spec format_question(String.t()) :: String.t()
-  def format_question(message), do: format(A.green() <> "@quest::", message)
+  @spec format_quest(String.t()) :: String.t()
+  def format_quest(message), do: format(A.green() <> "@quest::", message)
 
   @doc """
   Format to a pretty error
 
   ## Examples
 
-      iex> PrefixFormatter.format_error("Something is wrong !")
+      iex> PrefixFormatter.format_err("Something is wrong !")
       "@quest:: Something is wrong !"
 
   """
-  @spec format_error(String.t()) :: String.t()
-  def format_error(message), do: format(A.red() <> "@err::", message)
+  @spec format_err(String.t()) :: String.t()
+  def format_err(message), do: format(A.red() <> "@err::", message)
 
   @doc """
   Format to a pretty info

@@ -6,7 +6,7 @@ defmodule Prompty do
   """
 
   @doc """
-  Prompt a question and return the user input
+  Pormpt a question and return the user input
 
   ## Examples
 
@@ -15,10 +15,10 @@ defmodule Prompty do
 
   """
   @spec prompt(String.t()) :: String.t()
-  def prompt(question), do: IO.gets(format_question(question))
+  def prompt(question), do: IO.gets(format_quest(question))
 
   @doc """
-  Prompt an error
+  Print an error
 
   ## Examples
 
@@ -27,10 +27,10 @@ defmodule Prompty do
 
   """
   @spec print_error(String.t()) :: :ok
-  def print_error(error), do: IO.write(:stdio, format_error(error))
+  def print_error(error), do: IO.write(:stdio, format_err(error))
 
   @doc """
-  Prompt an info
+  Print an info
 
   ## Examples
 
