@@ -2,25 +2,25 @@ import PrefixFormatter
 
 defmodule Prompty do
   @moduledoc """
-  Bunch of helpers to prompt questions and print errors in a pretty manner
+  Bunch of helpers to prompt questions and print infos and errors in a pretty fahsion
   """
 
   @doc """
-  Prompt a question message
+  Prompt a question and return the user input
   ## Examples
 
-      iex> Prompty.prompt_question("How old are you")
-      "? How old are you\n"
+      iex> Prompty.prompt("How old are you")
+      "? How old are you"
 
   """
-  def prompt_question(question), do: IO.gets(format_question(question))
+  def prompt(question), do: IO.gets(format_question(question))
 
   @doc """
   Prompt an error
   ## Examples
 
       iex> Prompty.print_error("Nice error")
-      "X Nice error\n"
+      "X Nice error"
 
   """
   def print_error(error), do: IO.write(:stdio, format_error(error))
@@ -30,9 +30,8 @@ defmodule Prompty do
   ## Examples
 
       iex> Prompty.print_info("Wonderful info")
-      "@info Wonderful info\n"
+      "@info Wonderful info"
 
   """
   def print_info(info), do: IO.write(:stdio, format_info(info))
 end
-
