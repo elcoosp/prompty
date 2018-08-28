@@ -6,7 +6,7 @@ defmodule PrefixFormatter do
   """
 
   @doc """
-  Format a messaget with a prefix and a message. Add a line break
+  Format a message with a prefix and a message. Add a line break
 
   ## Examples
 

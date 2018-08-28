@@ -18,6 +18,37 @@ defmodule Prompty do
   def prompt(question), do: IO.gets(format_quest(question))
 
   @doc """
+  Prompt and call the false_handler while the predicate does not return true. Otherwise call the true_handler and stop prompting.
+  Handlers are passed the raw response (with a new line at the end)
+
+  ## Examples
+
+    iex> Prompty.prompt_while(
+      &(&1 === "a"),
+      fn x -> Prompty.print_info("Success") end,
+      fn x -> Prompty.print_error("Oops") end,
+      "Say a"
+    )
+    "Some loop"
+
+  """
+  @type input() :: String.t()
+  @type handler() :: (input -> any)
+  @spec prompt_while((input -> boolean), handler, handler, String.t()) :: :ok
+  def prompt_while(predicate, true_handler, false_handler, question) do
+    input = prompt(question)
+
+    case predicate.(input) do
+      true ->
+        true_handler.(input)
+
+      false ->
+        false_handler.(input)
+        prompt_while(predicate, true_handler, false_handler, question)
+    end
+  end
+
+  @doc """
   Print an error
 
   ## Examples
