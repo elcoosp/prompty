@@ -24,7 +24,7 @@ defmodule PrefixFormatter do
   ## Examples
 
       iex> PrefixFormatter.format_question("How old are you")
-      "? How old are you"
+      "@quest:: How old are you"
   """
   @spec format_question(String.t()) :: String.t()
   def format_question(message), do: format(A.green() <> "@quest::", message)
@@ -34,8 +34,8 @@ defmodule PrefixFormatter do
 
   ## Examples
 
-  iex> PrefixFormatter.format_error("Something is wrong !")
-  "X Something is wrong !"
+    iex> PrefixFormatter.format_error("Something is wrong !")
+    "@quest:: Something is wrong !"
   """
   @spec format_error(String.t()) :: String.t()
   def format_error(message), do: format(A.red() <> "@err::", message)
@@ -45,8 +45,8 @@ defmodule PrefixFormatter do
 
   ## Examples
 
-  iex> PrefixFormatter.format_info("Something is happening !")
-  "@info Something is happening !"
+    iex> PrefixFormatter.format_info("Something is happening !")
+    "@info:: Something is happening !"
   """
   @spec format_info(String.t()) :: String.t()
   def format_info(message), do: format(A.blue() <> "@info::", message)

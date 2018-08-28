@@ -10,7 +10,7 @@ defmodule Prompty do
   ## Examples
 
       iex> Prompty.prompt("How old are you")
-      "? How old are you"
+      "@quest:: How old are you"
 
   """
   @spec prompt(String.t()) :: String.t()
@@ -20,8 +20,8 @@ defmodule Prompty do
   Prompt an error
   ## Examples
 
-  iex> Prompty.print_error("Nice error")
-  "X Nice error"
+    iex> Prompty.print_error("Nice error")
+    "@err:: Nice error"
 
   """
   @spec print_error(String.t()) :: :ok
@@ -31,8 +31,8 @@ defmodule Prompty do
   Prompt an info
   ## Examples
 
-  iex> Prompty.print_info("Wonderful info")
-  "@info Wonderful info"
+    iex> Prompty.print_info("Wonderful info")
+    "@info:: Wonderful info"
 
   """
   @spec print_info(String.t()) :: :ok
